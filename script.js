@@ -73,44 +73,77 @@ const higher = function (str, fn) {
 
 // greet("chetori")("Alireza");
 
-const lufthansa = {
-    airline: "lufthansa",
-    code: "LH",
-    bookings: [],
-}
+// const lufthansa = {
+//     airline: "lufthansa",
+//     code: "LH",
+//     bookings: [],
+// }
 
 
-const aircanada = {
-    airline: "Air Canada",
-    code: "AC",
-    bookings: [],
-}
+// const aircanada = {
+//     airline: "Air Canada",
+//     code: "AC",
+//     bookings: [],
+// }
 
-// a function for objects 
-const book = function(flightnum, name) {
-    // console.log(`${name} booked a seat on ${this.airline} flight: ${this.code}${flightnum}`);
-    this.bookings.push({
-        flight: `${this.code}${flightnum}`,
-        name,
-    })
-}
-
-
-book.call(aircanada, 12345, "Alireza");
-book.call(aircanada, 12345, "Alireza");
-book.call(aircanada, 12345, "Alireza");
-
-book.call(lufthansa, 123456, "Mohsen")
-book.call(lufthansa, 123456, "Mohsen")
-book.call(lufthansa, 123456, "Mohsen")
+// // a function for objects 
+// const book = function(flightnum, name) {
+//     // console.log(`${name} booked a seat on ${this.airline} flight: ${this.code}${flightnum}`);
+//     this.bookings.push({
+//         flight: `${this.code}${flightnum}`,
+//         name,
+//     })
+// }
 
 
+// book.call(aircanada, 12345, "Alireza");
+// book.call(aircanada, 12345, "Alireza");
+// book.call(aircanada, 12345, "Alireza");
 
-const arr = [987, "saam"];
+// book.call(lufthansa, 123456, "Mohsen")
+// book.call(lufthansa, 123456, "Mohsen")
+// book.call(lufthansa, 123456, "Mohsen")
+
+
+
+// const arr = [987, "saam"];
 // book.apply(aircanada, arr);
-book.call(aircanada, ...arr);
-console.log(aircanada.bookings);
+// book.call(aircanada, ...arr);
+
 
 // the difference between call and apply method is that call receives arguments for the functuion with the object name but apply receives the arguments for the fucntion within an array
 
 
+// bind method
+// const booklh = book.bind(lufthansa);
+// booklh(69, "mohsen");
+// booklh(83, "alireza");
+// booklh(51, "lmd;ma");
+
+// console.log(lufthansa.bookings);
+// console.log(aircanada.bookings);
+
+// lufthansa.planes = 300;
+// lufthansa.buyplane = function() {
+//     console.log(this);
+
+//     lufthansa.planes++
+//     console.log(this.planes);
+// };
+ 
+// document.querySelector(".buy").addEventListener("click", lufthansa.buyplane.bind(lufthansa));
+// in the event handler function the this keyword always points to the element in which the handler is atached to
+
+
+// const addtax = (rate, value) => value + value * rate;
+// const addvat = addtax.bind(null ,.23);
+// console.log(addvat(1500));
+
+const addtax = function(rate) {
+    return function (value) {
+        console.log(value * rate / 100 + value);
+    }
+}
+
+const addvat = addtax(23);
+addvat(250);
