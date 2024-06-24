@@ -205,8 +205,12 @@ const firstupper = function (str) {
 // }
 
 // document.querySelector(".poll").addEventListener("click", poll.registerNewAnswer.bind(poll));
-(function () {
-  console.log("it executes once");
-})();
 
-(() => console.log("akdnask"))();
+// IIFE
+// (function () {
+//   console.log("it executes once");
+// })();
+
+// (() => console.log("akdnask"))();
+
+// closures
